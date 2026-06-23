@@ -42,4 +42,6 @@ class TestReviewDiff:
         mock_review.return_value = "Nice work!"
         result = review_diff("diff", "ollama", None, "codellama", "concise")
         assert result == "Nice work!"
-        mock_review.assert_called_once_with("diff", "codellama", "http://localhost:11434", "concise")
+        mock_review.assert_called_once_with(
+            "diff", "codellama", "http://localhost:11434", "concise"
+        )

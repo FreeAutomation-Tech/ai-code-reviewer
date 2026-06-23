@@ -1,6 +1,5 @@
-import os
 import fnmatch
-from github import Github, GithubIntegration
+from github import Github
 from github.PullRequest import PullRequest
 
 

@@ -18,7 +18,10 @@ def main():
     ollama_endpoint = get_env("INPUT_OLLAMA_ENDPOINT", "http://localhost:11434")
     review_style = get_env("INPUT_REVIEW_STYLE", "constructive")
     max_comments_str = get_env("INPUT_MAX_COMMENTS", "10")
-    exclude_paths = get_env("INPUT_EXCLUDE_PATHS", "*.lock,*.min.js,*.min.css,*package-lock.json,*yarn.lock")
+    exclude_paths = get_env(
+        "INPUT_EXCLUDE_PATHS",
+        "*.lock,*.min.js,*.min.css,*package-lock.json,*yarn.lock",
+    )
 
     if not github_token:
         print("::error ::GITHUB_TOKEN is required")
