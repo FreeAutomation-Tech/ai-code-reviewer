@@ -1,0 +1,45 @@
+name: 'AI Code Reviewer'
+description: 'Automatically review pull requests using AI — supports OpenAI, Anthropic, and Ollama'
+author: 'FreeAutomation-Tech'
+branding:
+  icon: 'code'
+  color: 'purple'
+
+inputs:
+  github_token:
+    description: 'GitHub token with pull request write access'
+    required: true
+  ai_provider:
+    description: 'AI provider to use: openai, anthropic, or ollama'
+    required: false
+    default: 'openai'
+  model:
+    description: 'Model name (e.g. gpt-4, claude-3-opus-20240229, codellama)'
+    required: false
+    default: ''
+  openai_api_key:
+    description: 'OpenAI API key (required if provider is openai)'
+    required: false
+  anthropic_api_key:
+    description: 'Anthropic API key (required if provider is anthropic)'
+    required: false
+  ollama_endpoint:
+    description: 'Ollama endpoint URL (required if provider is ollama)'
+    required: false
+    default: 'http://localhost:11434'
+  review_style:
+    description: 'Review style: constructive, strict, or concise'
+    required: false
+    default: 'constructive'
+  max_comments:
+    description: 'Maximum number of review comments to post'
+    required: false
+    default: '10'
+  exclude_paths:
+    description: 'Comma-separated glob patterns to exclude from review'
+    required: false
+    default: '*.lock,*.min.js,*.min.css,*package-lock.json,*yarn.lock'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
