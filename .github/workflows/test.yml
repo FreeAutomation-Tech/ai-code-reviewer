@@ -25,7 +25,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pytest pytest-mock
-          pip install PyGithub openai anthropic requests
 
       - name: Run tests
         run: python -m pytest tests/ -v
