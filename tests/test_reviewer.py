@@ -22,7 +22,7 @@ class TestReviewDiff:
             review_diff("diff", "openai", None, "", "constructive")
             assert False, "Should have raised ValueError"
         except ValueError as e:
-            assert "API key" in str(e).lower()
+            assert "API key" in str(e)
 
     @patch("src.reviewer.anthropic_review")
     def test_anthropic_provider(self, mock_review):
@@ -35,7 +35,7 @@ class TestReviewDiff:
             review_diff("diff", "anthropic", None, "", "strict")
             assert False, "Should have raised ValueError"
         except ValueError as e:
-            assert "API key" in str(e).lower()
+            assert "API key" in str(e)
 
     @patch("src.reviewer.ollama_review")
     def test_ollama_provider(self, mock_review):
